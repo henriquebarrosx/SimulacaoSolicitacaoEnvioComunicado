@@ -36,7 +36,7 @@ public class V1ComunicadoController {
 	public ResponseEntity<ComunicadoIdDTO> solicitarAgendamento(
 			@RequestBody SolicitacaoAgendamentoComunicadoDTO solicitacao) {
 		Comunicado comunicado = comunicadoService.cadastrar(solicitacao);
-		return ResponseEntity.ok().body(new ComunicadoIdDTO(comunicado.getId()));
+		return ResponseEntity.status(HttpStatus.CREATED).body(new ComunicadoIdDTO(comunicado.getId()));
 	}
 
 	@GetMapping("/agendamentos")
