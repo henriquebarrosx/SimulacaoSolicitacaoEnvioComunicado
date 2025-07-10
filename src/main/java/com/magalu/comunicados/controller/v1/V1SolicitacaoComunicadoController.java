@@ -73,6 +73,9 @@ public class V1SolicitacaoComunicadoController {
 		return ResponseEntity.ok().body(comunicadoSimplificado);
 	}
 
+	@Operation(description = "Realiza exclusão de uma solicitação de agendamento para envio de comunicado")
+	@ApiResponse(responseCode = "204", content = @Content(mediaType = "application/json"))
+	@ApiResponse(responseCode = "404", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionDTO.class), examples = @ExampleObject(value = "{\"message\": \"Comunicado não encontrado com o ID: 10 \"}")))
 	@DeleteMapping("/agendamentos/{id}")
 	public ResponseEntity<?> removerSolicitacaoAgendamento(@PathVariable Long id) {
 		comunicadoService.remover(id);
