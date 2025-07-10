@@ -46,4 +46,9 @@ public class ComunicadoService {
 		return comunicadoRepository.save(comunicado);
 	}
 
+	public void remover(Long id) {
+		Comunicado comunicado = obterPorId(id);
+		comunicadoRepository.delete(comunicado);
+	}
+
 }

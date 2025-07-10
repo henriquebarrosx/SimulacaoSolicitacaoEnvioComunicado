@@ -1,7 +1,9 @@
 package com.magalu.comunicados.controller.v1;
 
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +17,6 @@ import com.magalu.comunicados.dto.ComunicadoIdDTO;
 import com.magalu.comunicados.dto.ComunicadoSimplificadoDTO;
 import com.magalu.comunicados.dto.PaginacaoDTO;
 import com.magalu.comunicados.dto.SolicitacaoAgendamentoComunicadoDTO;
-import com.magalu.comunicados.dto.TotalPaginacaoDTO;
 import com.magalu.comunicados.mapper.ComunicadoMapper;
 import com.magalu.comunicados.mapper.PaginacaoMapper;
 import com.magalu.comunicados.service.ComunicadoService;
@@ -57,4 +58,9 @@ public class ComunicadoController {
 		return ResponseEntity.ok().body(comunicadoSimplificado);
 	}
 
+	@DeleteMapping("/agendamentos/{id}")
+	public ResponseEntity<?> removerSolicitacaoAgendamento(@PathVariable Long id) {
+		comunicadoService.remover(id);
+		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+	}
 }
