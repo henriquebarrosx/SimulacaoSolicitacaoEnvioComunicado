@@ -42,6 +42,11 @@ public class V1SolicitacaoComunicadoController {
 	private final ComunicadoMapper comunicadoMapper;
 	private final PaginacaoMapper paginacaoMapper;
 
+	@ApiResponse(responseCode = "201", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ComunicadoIdDTO.class)))
+	@ApiResponse(responseCode = "400", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionDTO.class), examples = {
+			@ExampleObject(name = "Telefone Nulo", value = "{\"message\": \"Telefone não pode ser nulo\"}"),
+			@ExampleObject(name = "Formato de Telefone Inválido", value = "{\"message\": \"Formato de telefone inválido. Use (DD) XXXXX-XXXX ou DD XXXXX-XXXX.\"}"),
+	}))
 	@PostMapping("/agendamentos/solicitar")
 	public ResponseEntity<ComunicadoIdDTO> solicitarAgendamento(
 			@RequestBody SolicitacaoAgendamentoComunicadoDTO solicitacao) {
