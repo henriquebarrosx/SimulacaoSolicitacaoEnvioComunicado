@@ -26,7 +26,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 @RequestMapping("/v1/comunicados")
 @RestController
-public class ComunicadoController {
+public class V1ComunicadoController {
 
 	private final ComunicadoService comunicadoService;
 	private final ComunicadoMapper comunicadoMapper;
