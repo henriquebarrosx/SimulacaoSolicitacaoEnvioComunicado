@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.magalu.comunicados.domain.entity.Comunicado;
+import com.magalu.comunicados.dto.ExceptionDTO;
 import com.magalu.comunicados.dto.PaginacaoDTO;
 import com.magalu.comunicados.dto.comunicado.ComunicadoIdDTO;
 import com.magalu.comunicados.dto.comunicado.ComunicadoSimplificadoDTO;
@@ -25,6 +26,7 @@ import com.magalu.comunicados.service.ComunicadoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.ExampleObject;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -61,6 +63,9 @@ public class V1SolicitacaoComunicadoController {
 		return ResponseEntity.ok().body(comunicadosPaginados);
 	}
 
+	@Operation(description = "Retorna uma solicitação de agendamento para envio de comunicado")
+	@ApiResponse(responseCode = "200", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ComunicadoSimplificadoDTO.class)))
+	@ApiResponse(responseCode = "404", content = @Content(mediaType = "application/json", schema = @Schema(implementation = ExceptionDTO.class), examples = @ExampleObject(value = "{\"message\": \"Comunicado não encontrado com o ID: 10 \"}")))
 	@GetMapping("/agendamentos/{id}")
 	public ResponseEntity<ComunicadoSimplificadoDTO> obterComunidado(@PathVariable Long id) {
 		Comunicado comunicado = comunicadoService.obterPorId(id);
