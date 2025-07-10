@@ -1,6 +1,8 @@
-package com.magalu.comunicados.dto;
+package com.magalu.comunicados.dto.comunicado;
 
 import java.time.LocalDateTime;
+
+import com.magalu.comunicados.dto.destinatario.DestinatarioDTO;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;

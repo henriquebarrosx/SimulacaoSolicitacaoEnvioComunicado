@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.magalu.comunicados.domain.entity.Comunicado;
 import com.magalu.comunicados.domain.entity.Destinatario;
 import com.magalu.comunicados.domain.enums.StatusComunicado;
-import com.magalu.comunicados.dto.SolicitacaoAgendamentoComunicadoDTO;
+import com.magalu.comunicados.dto.comunicado.SolicitacaoAgendamentoComunicadoDTO;
 import com.magalu.comunicados.exception.NotFoundException;
 import com.magalu.comunicados.repository.ComunicadoRepository;
 

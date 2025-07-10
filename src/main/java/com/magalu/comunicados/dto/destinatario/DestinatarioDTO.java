@@ -1,4 +1,4 @@
-package com.magalu.comunicados.dto;
+package com.magalu.comunicados.dto.destinatario;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

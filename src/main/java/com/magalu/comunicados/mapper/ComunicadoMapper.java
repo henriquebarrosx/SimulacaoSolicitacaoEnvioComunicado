@@ -3,8 +3,8 @@ package com.magalu.comunicados.mapper;
 import org.springframework.stereotype.Service;
 
 import com.magalu.comunicados.domain.entity.Comunicado;
-import com.magalu.comunicados.dto.ComunicadoSimplificadoDTO;
-import com.magalu.comunicados.dto.DestinatarioSimplificadoDTO;
+import com.magalu.comunicados.dto.comunicado.ComunicadoSimplificadoDTO;
+import com.magalu.comunicados.dto.destinatario.DestinatarioSimplificadoDTO;
 
 @Service
 public class ComunicadoMapper {

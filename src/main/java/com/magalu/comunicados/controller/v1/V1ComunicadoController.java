@@ -13,10 +13,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.magalu.comunicados.domain.entity.Comunicado;
-import com.magalu.comunicados.dto.ComunicadoIdDTO;
-import com.magalu.comunicados.dto.ComunicadoSimplificadoDTO;
 import com.magalu.comunicados.dto.PaginacaoDTO;
-import com.magalu.comunicados.dto.SolicitacaoAgendamentoComunicadoDTO;
+import com.magalu.comunicados.dto.comunicado.ComunicadoIdDTO;
+import com.magalu.comunicados.dto.comunicado.ComunicadoSimplificadoDTO;
+import com.magalu.comunicados.dto.comunicado.SolicitacaoAgendamentoComunicadoDTO;
 import com.magalu.comunicados.mapper.ComunicadoMapper;
 import com.magalu.comunicados.mapper.PaginacaoMapper;
 import com.magalu.comunicados.service.ComunicadoService;
@@ -63,4 +63,5 @@ public class V1ComunicadoController {
 		comunicadoService.remover(id);
 		return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
 	}
+
 }
