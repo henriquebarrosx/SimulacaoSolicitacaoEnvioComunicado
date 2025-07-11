@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import com.magalu.comunicados.domain.enums.StatusComunicado;
+import com.magalu.comunicados.domain.enums.StatusAgendamentoComunicado;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -27,19 +27,19 @@ import lombok.Setter;
 
 @Setter
 @Getter
-@Entity
 @Builder
-@Table(name = "comunicado")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Comunicado {
+@Table(name = "agendamento_comunicado")
+@Entity
+public class AgendamentoComunicado {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "data_hora", nullable = false)
-	private LocalDateTime dataHora;
+	@Column(name = "data_hora_envio", nullable = false)
+	private LocalDateTime dataHoraEnvio;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "destinatario_id", referencedColumnName = "id")
@@ -47,7 +47,10 @@ public class Comunicado {
 
 	@Column(name = "status", nullable = false)
 	@Enumerated(value = EnumType.STRING)
-	private StatusComunicado status;
+	private StatusAgendamentoComunicado status;
+
+	@Column(name = "mensagem", nullable = false, columnDefinition = "TEXT")
+	private String mensagem;
 
 	@CreationTimestamp
 	@Column(name = "created_at", nullable = false)
